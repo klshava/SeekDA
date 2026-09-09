@@ -1,0 +1,11 @@
+seek_marketplace_quality:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      # Defaults to a file alongside the repo, which is what you want when
+      # running this locally. DBT_DB_PATH can override it (used only for
+      # building this project from a sandboxed environment where the DB
+      # file's folder doesn't allow WAL cleanup).
+      path: "{{ env_var('DBT_DB_PATH', '../data/seek_marketplace_quality.duckdb') }}"
+      threads: 4

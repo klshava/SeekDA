@@ -1,0 +1,21 @@
+# dbt
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+data/*.duckdb
+data/*.duckdb.wal
+
+# raw third-party dataset - not redistributed, see README for how to obtain it
+data/raw/*
+!data/raw/.gitkeep
+
+# python
+__pycache__/
+*.pyc
+.venv/
+
+# os
+.DS_Store
+
+# dbt-generated local user id, not project config
+dbt/.user.yml

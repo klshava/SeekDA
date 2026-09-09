@@ -1,0 +1,20 @@
+name: 'seek_marketplace_quality'
+version: '1.0.0'
+config-version: 2
+
+profile: 'seek_marketplace_quality'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  seek_marketplace_quality:
+    staging:
+      +materialized: view
+      +schema: staging
+    marts:
+      +materialized: table
+      +schema: marts
