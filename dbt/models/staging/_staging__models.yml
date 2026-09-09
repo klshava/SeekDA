@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: stg_seek_job_listings
+    description: >
+      One row per SEEK job ad, lightly cleaned and typed from the raw source.
+      No business logic / derived metrics here — see int_job_listings_enriched
+      for salary parsing, duplicate detection, and quality flags.
+    columns:
+      - name: listing_id
+        description: Unique id for the scraped listing (source uniq_id).
+        data_tests:
+          - unique
+          - not_null
+      - name: job_title
+        description: Job ad title as posted.
+      - name: category
+        description: SEEK job category (30 distinct values in this snapshot).
+        data_tests:
+          - not_null
+      - name: company_name
+        description: Advertiser / hirer name (often a recruitment agency, not the end employer).
+      - name: city
+      - name: state
+      - name: country
+      - name: post_date
+        description: Date the ad was posted to SEEK.
+        data_tests:
+          - not_null
+      - name: job_description
+      - name: job_type
+        description: Employment type.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Full Time', 'Part Time', 'Contract/Temp', 'Casual/Vacation']
+      - name: salary_offered_raw
+        description: >
+          Free-text salary string as posted (e.g. "$45,000 - $49,999" or
+          "$25 - $29.99 per hour"). Null when the advertiser didn't disclose a
+          salary — ~69% of ads in this snapshot. Parsed into salary_est_annual_aud
+          in the intermediate layer.
+      - name: contact_email
+      - name: has_expired
+        description: Whether SEEK had marked the ad expired as of last_expiry_check_date.
+      - name: last_expiry_check_date
+      - name: source_fitness_score
+        description: >
+          PromptCloud's own scrape-completeness confidence score (0-10) for this
+          record. A data-quality signal about the scrape, not about the job ad
+          itself — kept for reference, not used in the marketplace-quality marts.
+      - name: crawl_timestamp_raw
