@@ -1,0 +1,59 @@
+version: 2
+
+models:
+  - name: mart_overview_kpis
+    description: >
+      Single-row headline KPI summary for the dashboard's top stat-tile row.
+    columns:
+      - name: total_postings
+        data_tests:
+          - not_null
+
+  - name: mart_category_quality_signals
+    description: >
+      One row per SEEK category: volume, share of total, and the marketplace
+      quality signals (salary transparency, duplicate rate, description
+      depth, time-to-expiry) broken out by category.
+    columns:
+      - name: category
+        data_tests:
+          - unique
+          - not_null
+      - name: postings_count
+        data_tests:
+          - not_null
+      - name: pct_of_total_postings
+        description: This category's share of all postings in the snapshot. Should sum to ~100 across all rows.
+
+  - name: mart_hirer_concentration
+    description: >
+      One row per advertiser (company_name) -- note this is the account that
+      posted the ad, which for a large share of volume is a recruitment
+      agency rather than the end employer. Ranked by posting volume to show
+      how concentrated the marketplace is among a few high-volume advertisers.
+    columns:
+      - name: company_name
+        data_tests:
+          - unique
+          - not_null
+      - name: postings_count
+        data_tests:
+          - not_null
+      - name: volume_rank
+        data_tests:
+          - unique
+          - not_null
+
+  - name: mart_listing_quality_trend
+    description: >
+      Weekly time series of posting volume and quality signals across the
+      snapshot window (this dataset covers roughly Aug-Oct 2019 -- see README
+      for why it's a historical snapshot rather than live data).
+    columns:
+      - name: week_start
+        data_tests:
+          - unique
+          - not_null
+      - name: postings_count
+        data_tests:
+          - not_null
