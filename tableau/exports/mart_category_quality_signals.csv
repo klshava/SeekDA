@@ -1,0 +1,31 @@
+category,postings_count,distinct_hirers,pct_salary_disclosed,avg_est_annual_salary_aud,pct_duplicate_ads,avg_description_word_count,pct_of_total_postings
+Administration & Office Support,1292,938,31.0,49529.0,2.6,299.0,12.9
+"Manufacturing, Transport & Logistics",1002,623,29.2,32601.0,3.7,245.0,10.0
+Hospitality & Tourism,985,423,14.7,52439.0,6.3,219.0,9.9
+Accounting,754,433,40.2,66100.0,7.3,288.0,7.5
+Information & Communication Technology,701,477,32.1,71064.0,0.9,339.0,7.0
+Trades & Services,589,429,26.5,41390.0,0.8,220.0,5.9
+Retail & Consumer Products,582,336,28.4,46725.0,2.1,284.0,5.8
+Call Centre & Customer Service,529,329,38.9,45964.0,9.6,316.0,5.3
+Sales,485,379,34.0,74085.0,1.6,325.0,4.9
+Marketing & Communications,351,299,33.6,82164.0,1.7,376.0,3.5
+Community Services & Development,344,248,34.6,56508.0,0.6,407.0,3.4
+Healthcare & Medical,333,260,24.3,57662.0,0.9,304.0,3.3
+Banking & Financial Services,270,164,31.1,71890.0,3.0,335.0,2.7
+Human Resources & Recruitment,246,202,37.4,76665.0,3.3,374.0,2.5
+Education & Training,222,169,36.9,55492.0,4.1,339.0,2.2
+Real Estate & Property,187,129,35.3,65183.0,2.1,274.0,1.9
+Government & Defence,174,124,40.8,64741.0,2.3,357.0,1.7
+Construction,171,134,40.4,77523.0,1.2,268.0,1.7
+Legal,111,81,42.3,55114.0,1.8,284.0,1.1
+Engineering,109,101,22.0,75627.0,0.0,380.0,1.1
+"Mining, Resources & Energy",77,65,15.6,75733.0,0.0,339.0,0.8
+Insurance & Superannuation,75,55,33.3,83877.0,0.0,338.0,0.8
+Design & Architecture,72,66,33.3,79096.0,0.0,285.0,0.7
+"Farming, Animals & Conservation",66,57,16.7,44004.0,3.0,308.0,0.7
+"Advertising, Arts & Media",65,56,24.6,51966.0,0.0,367.0,0.7
+CEO & General Management,58,57,29.3,135643.0,0.0,391.0,0.6
+Sport & Recreation,53,48,20.8,58366.0,0.0,354.0,0.5
+Science & Technology,51,46,23.5,94660.0,0.0,346.0,0.5
+Consulting & Strategy,40,38,32.5,99694.0,0.0,425.0,0.4
+Self Employment,6,2,100.0,9633.0,0.0,244.0,0.1
