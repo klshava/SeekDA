@@ -1,0 +1,5 @@
+# No external packages used. hub.getdbt.com isn't reachable from this
+# workspace's network egress, so data-quality checks that would normally use
+# dbt_utils are written as native dbt tests / singular tests instead
+# (see dbt/tests/).
+packages: []

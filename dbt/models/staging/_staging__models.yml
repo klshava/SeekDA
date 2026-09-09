@@ -4,7 +4,7 @@ models:
   - name: stg_seek_job_listings
     description: >
       One row per SEEK job ad, lightly cleaned and typed from the raw source.
-      No business logic / derived metrics here — see int_job_listings_enriched
+      No business logic / derived metrics here -- see int_job_listings_enriched
       for salary parsing, duplicate detection, and quality flags.
     columns:
       - name: listing_id
@@ -38,7 +38,7 @@ models:
         description: >
           Free-text salary string as posted (e.g. "$45,000 - $49,999" or
           "$25 - $29.99 per hour"). Null when the advertiser didn't disclose a
-          salary — ~69% of ads in this snapshot. Parsed into salary_est_annual_aud
+          salary -- ~69% of ads in this snapshot. Parsed into salary_est_annual_aud
           in the intermediate layer.
       - name: contact_email
       - name: has_expired
@@ -48,5 +48,5 @@ models:
         description: >
           PromptCloud's own scrape-completeness confidence score (0-10) for this
           record. A data-quality signal about the scrape, not about the job ad
-          itself — kept for reference, not used in the marketplace-quality marts.
+          itself -- kept for reference, not used in the marketplace-quality marts.
       - name: crawl_timestamp_raw

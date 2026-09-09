@@ -6,7 +6,7 @@ sources:
       Raw scraped SEEK Australia job listings (PromptCloud "Latest Seek Australia
       Job Dataset" via Kaggle). Static historical snapshot, Aug-Oct 2019, ~10k
       listings. Read directly off the local JSON-lines file via DuckDB's JSON
-      reader — no separate load/seed step needed.
+      reader -- no separate load/seed step needed.
     tables:
       - name: seek_job_listings
         description: One row per scraped job ad, as published to seek.com.au.
