@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: int_job_listings_enriched
+    description: >
+      stg_seek_job_listings plus derived "marketplace quality signal" fields:
+      salary disclosure/estimate, duplicate-ad detection, description length,
+      and a time-to-expiry proxy. This is the single model every mart aggregates
+      from.
+    columns:
+      - name: listing_id
+        data_tests:
+          - unique
+          - not_null
+      - name: has_salary_disclosed
+        description: True if the advertiser included any salary text on the ad.
+      - name: salary_est_annual_aud
+        description: >
+          Best-effort annualised salary estimate parsed from salary_offered_raw.
+          Assumptions: hourly rates annualised at 38hrs/week x 52 weeks; "$NNNk"
+          read as thousands; a range is summarised as its midpoint. Null when no
+          salary was disclosed or the text didn't match a known pattern.
+      - name: has_direct_contact_email
+        description: True if the ad exposed a contact email rather than routing through SEEK's apply flow.
+      - name: description_word_count
+      - name: is_duplicate_ad
+        description: >
+          Heuristic flag: true when another row shares the same job_title,
+          company_name and city. Catches exact reposts, not near-duplicates.
+      - name: salary_estimate_suspect
+        description: >
+          True when the raw salary text parsed to an implausible annual figure
+          (outside $0-$350k AUD) -- usually a compound free-text string like
+          "(OTE$200k+) uncapped comm + super" that the regex parser can't
+          reliably split. salary_est_annual_aud is nulled out in these cases
+          rather than published. ~0.5% of disclosed-salary rows in this
+          snapshot.
